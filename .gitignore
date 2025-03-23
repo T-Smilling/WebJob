@@ -5,7 +5,7 @@
 *.log
 *.tmp
 *.swp
-
+/git
 # File chứa thông tin nhạy cảm
 .env
 .env.*
