@@ -1,0 +1,74 @@
+/* Edit Interview Modal Styles */
+.edit-interview-modal .ant-modal-content {
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.edit-interview-modal .ant-modal-header {
+  border-radius: 12px 12px 0 0;
+  background: linear-gradient(to right, #1890ff, #096dd9);
+  padding: 16px 24px;
+  border-bottom: none;
+}
+
+.edit-interview-modal .ant-modal-title {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.edit-interview-modal .ant-modal-body {
+  padding: 24px;
+}
+
+.edit-interview-modal .ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+.edit-interview-modal .ant-picker {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.edit-interview-modal .ant-select-selector {
+  border-radius: 6px !important;
+}
+
+.edit-interview-modal .ant-input {
+  border-radius: 6px;
+}
+
+.edit-interview-modal .ant-input-textarea {
+  border-radius: 6px;
+}
+
+.edit-interview-modal .ant-btn {
+  border-radius: 6px;
+  height: 40px;
+  font-weight: 500;
+}
+
+.edit-interview-modal .ant-btn-primary {
+  background: #1890ff;
+  border-color: #1890ff;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+}
+
+.edit-interview-modal .ant-btn-primary:hover {
+  background: #1890ff;
+  border-color: #1890ff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .edit-interview-modal .ant-modal {
+    max-width: 90% !important;
+    margin: 10px auto;
+  }
+
+  .edit-interview-modal .ant-form-item {
+    margin-bottom: 16px;
+  }
+}
+

@@ -1,0 +1,249 @@
+.upload-resume-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px 0 40px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  min-height: calc(100vh - 100px);
+}
+
+.header {
+    background: #e0f2f7;
+    color: #333;
+  padding: 20px;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.header p {
+  margin: 5px 0 0;
+  font-size: 16px;
+}
+
+.content {
+  padding: 0 20px;
+}
+
+.content p.description {
+  margin: 0 auto 20px;
+  color: #333;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 700px;
+}
+
+.upload-section {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.upload-section:hover {
+  border-color: #00a65c;
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.upload-section input[type="file"] {
+  display: none;
+}
+
+.upload-content p {
+  margin-bottom: 0;
+}
+
+.upload-content .ant-btn-link {
+  padding: 0;
+}
+
+.choose-file-btn {
+  background: #fff !important;
+  border: 1px solid #d9d9d9 !important;
+  color: #666 !important;
+  padding: 0 20px !important;
+  height: 40px !important;
+}
+
+.choose-file-btn:hover {
+  background: #f0f0f0 !important;
+  border-color: #c0c0c0 !important;
+  color: #333 !important;
+}
+
+.file-display {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.file-info {
+  display: inline-flex;
+  align-items: center;
+  border: 1px dashed #d9d9d9;
+  padding: 10px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.file-info span {
+  color: #1890ff;
+  margin-right: 10px;
+}
+
+.file-info .ant-btn-link {
+  padding: 0;
+  height: auto;
+  color: #00a65c;
+}
+
+.button-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.upload-button {
+  background: #00a65c !important;
+  border-color: #00a65c !important;
+  padding: 0 30px !important;
+  height: 40px !important;
+  font-size: 16px !important;
+}
+
+.upload-button:hover {
+  background: #00c774 !important;
+  border-color: #00c774 !important;
+}
+
+.upload-button[disabled] {
+  background: #d9d9d9 !important;
+  border-color: #d9d9d9 !important;
+  color: #999 !important;
+}
+
+.card-container {
+  margin-top: 20px;
+  padding: 20px 0;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.card-icon {
+  font-size: 24px;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.card p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  .upload-resume-container {
+    margin: 10px;
+    padding: 10px 0 20px;
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .header h2 {
+    font-size: 20px;
+  }
+
+  .header p {
+    font-size: 14px;
+  }
+
+  .content p.description {
+    font-size: 14px;
+  }
+
+  .upload-section {
+    padding: 10px;
+  }
+
+  .file-info {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .file-info span {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .upload-button {
+    margin: 10px 0;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .card {
+    margin-bottom: 16px;
+  }
+
+  .card-container {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    margin-bottom: 12px;
+    padding: 15px;
+  }
+
+  .card-container {
+    padding: 5px 0;
+  }
+}

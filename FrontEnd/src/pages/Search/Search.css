@@ -1,0 +1,66 @@
+.search-page {
+  padding: 20px;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+}
+
+.filter-panel {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-panel h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #52c41a;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-section h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.filter-section label {
+  display: block;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.filter-section input[type="checkbox"],
+.filter-section input[type="radio"] {
+  margin-right: 8px;
+}
+
+.filter-section input[type="radio"]:checked::after {
+  background-color: #52c41a;
+}
+
+.result-find {
+  font-size: 18px;
+  color: #333;
+  margin-right: 10px;
+}
+
+
+.tag {
+  margin: 5px;
+  font-size: 14px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.ant-tag-cyan {
+  background-color: #e6f7ff;
+  border-color: #1890ff;
+  color: #1890ff;
+}

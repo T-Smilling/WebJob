@@ -1,0 +1,27 @@
+/* UserManagement.css */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-button {
+  background-color: #1890ff !important;
+  border-color: #1890ff !important;
+  color: #fff !important;
+}
+
+.edit-button:hover {
+  background-color: #40a9ff !important;
+  border-color: #40a9ff !important;
+}
+
+.delete-button {
+  background-color: #ff4d4f !important;
+  border-color: #ff4d4f !important;
+  color: #fff !important;
+}
+
+.delete-button:hover {
+  background-color: #ff7875 !important;
+  border-color: #ff7875 !important;
+}

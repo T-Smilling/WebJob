@@ -1,0 +1,358 @@
+/* Main container */
+.resume-manager {
+  padding: 20px;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* Card styling */
+.resume-manager .ant-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.resume-manager .ant-card-head {
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+}
+
+.resume-manager .ant-card-head-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.resume-manager .ant-card-body {
+  padding: 24px;
+}
+
+/* Empty resume state */
+.empty-resume {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+  padding: 40px 0;
+  background-color: #fafafa;
+  border-radius: 4px;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Resume list section */
+.resume-list .ant-card {
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Uploaded resumes */
+.uploaded-resumes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.resume-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.resume-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+}
+
+.resume-icon {
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.resume-icon .ant-avatar {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.resume-info {
+  flex: 1;
+  min-width: 0; /* Prevents flex item from overflowing */
+}
+
+.resume-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.resume-date {
+  color: #999;
+  font-size: 14px;
+}
+
+/* User info section */
+.user-info .ant-card {
+  height: auto;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.user-details {
+  margin-left: 16px;
+  flex: 1;
+  min-width: 0; /* Prevents flex item from overflowing */
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.user-verified {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+  flex-wrap: wrap;
+}
+
+.verified-icon {
+  background-color: #52c41a;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.unverified-icon {
+  background-color: #faad14;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+/* Status sections */
+.user-status,
+.allow-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.status-label,
+.allow-search-label {
+  font-weight: 500;
+  color: #333;
+  margin-right: 10px;
+}
+
+.status-note,
+.allow-search-note {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.allow-search-note ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.allow-search-note li {
+  margin-bottom: 4px;
+}
+
+/* Buttons */
+.resume-manager .ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.resume-manager .ant-btn-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+/* Pagination */
+.resume-manager .ant-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Ensure consistent heights */
+.resume-list .ant-card-body {
+  min-height: 200px;
+}
+
+/* Confirmation modal styling */
+.ant-modal-confirm .ant-modal-confirm-btns {
+  margin-top: 24px;
+}
+
+.ant-modal-confirm-body .ant-modal-confirm-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.ant-modal-confirm-body .ant-modal-confirm-content {
+  margin-top: 16px;
+  font-size: 15px;
+}
+
+.ant-modal-confirm .ant-btn-danger {
+  background-color: #ff4d4f;
+  border-color: #ff4d4f;
+}
+
+.ant-modal-confirm .ant-btn-danger:hover {
+  background-color: #ff7875;
+  border-color: #ff7875;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .resume-item {
+    flex-wrap: wrap;
+  }
+
+  .resume-item .ant-btn {
+    margin-top: 12px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .resume-manager {
+    padding: 10px;
+  }
+
+  .resume-list,
+  .user-info {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .resume-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .resume-icon {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .resume-info {
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  .user-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .user-details {
+    margin-left: 0;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .user-status,
+  .allow-search {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ant-switch {
+    margin-top: 8px;
+  }
+
+  .resume-manager .ant-card-head-title,
+  .resume-manager .ant-card-extra {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  .resume-manager .ant-card-head-wrapper {
+    display: block;
+  }
+
+  .resume-manager .ant-card-extra {
+    margin-top: 10px;
+  }
+}
+
+/* Fix for consistent card heights - but don't force equal heights on mobile */
+@media (min-width: 768px) {
+  .resume-manager .ant-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .resume-list .ant-card-body,
+  .user-info .ant-card-body {
+    height: auto;
+    min-height: 200px;
+  }
+}
+
+/* Override Ant Design's default responsive behavior */
+@media (max-width: 575px) {
+  .resume-manager .ant-col {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .resume-manager .ant-row {
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+  }
+}
+
+/* Fix for button in resume item */
+.resume-item .ant-btn {
+  white-space: normal;
+  height: auto;
+  padding: 8px 15px;
+  flex-shrink: 0;
+}
+
+/* Fix for long text overflow */
+.resume-name,
+.user-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

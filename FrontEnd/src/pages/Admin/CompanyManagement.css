@@ -1,0 +1,14 @@
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-button {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.delete-button {
+  background-color: #ff4d4f;
+  border-color: #ff4d4f;
+}

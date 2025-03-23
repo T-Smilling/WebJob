@@ -1,0 +1,13 @@
+.job-page {
+  padding: 20px;
+  background-color: #f5f7fa;
+  min-height: calc(100vh - 64px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .job-page {
+    padding: 10px;
+  }
+}

@@ -1,0 +1,268 @@
+.one-company-detail-container {
+  padding: 24px;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+}
+
+.one-company-header {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.one-company-logo-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: auto;
+}
+
+.logo-wrapper {
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.one-company-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  border: 3px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.one-company-name {
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+
+.one-company-description {
+  display: block;
+  margin-bottom: 16px;
+  color: #595959;
+}
+
+.one-company-meta {
+  width: 100%;
+}
+
+.meta-icon {
+  margin-right: 8px;
+  color: #1890ff;
+}
+
+.one-job-list {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.no-data {
+  display: block;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.one-job-posts-header {
+  padding: 16px 0;
+  width: 100%;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.one-add-job-button {
+  margin-left: 16px;
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.one-add-job-button:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.one-employee-list {
+  background-color: #f5f7fa;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.one-employee-list:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.one-employee-list .ant-list-item {
+  padding: 16px;
+  border-bottom: 1px solid #e0e6ed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.one-employee-list .ant-list-item:hover {
+  background-color: #f0f2f5;
+}
+
+.one-employee-list .ant-list-item-meta-title {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.one-employee-list .ant-list-item-meta-description {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.one-employee-list .ant-btn {
+  margin-left: 12px;
+  padding: 6px 16px;
+  height: 32px;
+  font-size: 13px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.one-employee-list .ant-btn-primary {
+  background: linear-gradient(90deg, #4fc3f7, #1890ff);
+  border: none;
+  color: #fff;
+}
+
+.one-employee-list .ant-btn-primary:hover {
+  background: linear-gradient(90deg, #65c9f7, #40a9ff);
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+}
+
+.one-employee-list .ant-btn-danger {
+  background: linear-gradient(90deg, #ff7e82, #ff4d4f);
+  border: none;
+  color: #fff;
+}
+
+.one-employee-list .ant-btn-danger:hover {
+  background: linear-gradient(90deg, #ff9498, #ff6666);
+  box-shadow: 0 2px 8px rgba(255, 77, 79, 0.3);
+}
+
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.custom-pagination .ant-pagination {
+  display: flex;
+  align-items: center;
+}
+
+.custom-pagination .ant-pagination-item {
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: all 0.3s ease;
+}
+
+.custom-pagination .ant-pagination-item-active {
+  background: linear-gradient(90deg, #4fc3f7, #1890ff);
+  border: none;
+}
+
+.custom-pagination .ant-pagination-item-active a {
+  color: #fff;
+}
+
+.custom-pagination .ant-pagination-item:hover {
+  background-color: #e0e6ed;
+}
+
+.no-data {
+  text-align: center;
+  color: #bdc3c7;
+  padding: 24px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .one-employee-list .ant-list-item {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .one-employee-list .ant-btn {
+    margin: 8px 0 0 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .one-company-detail-container {
+    padding: 16px;
+  }
+
+  .one-company-logo {
+    max-width: 120px;
+  }
+
+  .one-company-name {
+    font-size: 24px;
+  }
+
+  .one-company-description {
+    font-size: 14px;
+  }
+
+  .one-job-posts-header {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .one-add-job-button {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .one-company-logo {
+    max-width: 100px;
+  }
+
+  .one-company-name {
+    font-size: 20px;
+  }
+
+  .one-company-description {
+    font-size: 13px;
+  }
+
+  .one-add-job-button {
+    font-size: 12px;
+    height: 32px;
+    padding: 0 12px;
+  }
+
+  .one-add-job-button .anticon {
+    font-size: 12px;
+  }
+}

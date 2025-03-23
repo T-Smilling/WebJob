@@ -1,0 +1,270 @@
+/* Profile Container */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 140px); /* Trừ chiều cao header và footer */
+  padding: 32px;
+  background-color: #f5f7fa;
+}
+
+/* Profile Card */
+.profile-card {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  background-color: #fff;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.profile-header .ant-avatar {
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.profile-header .ant-typography {
+  margin: 0;
+}
+
+.profile-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.profile-header .ant-typography-secondary {
+  font-size: 16px;
+  color: #888;
+}
+
+/* Profile Info */
+.profile-info {
+  margin-bottom: 24px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #595959;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+
+.info-item .ant-typography-strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1a1a1a;
+}
+
+.info-item .anticon {
+  color: #1890ff;
+  font-size: 18px;
+}
+
+.verified {
+  color: #52c41a;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+/* Edit Profile Button */
+.edit-profile-btn {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  border-radius: 6px;
+  font-size: 16px;
+  height: 40px;
+  padding: 0 24px;
+  transition: all 0.3s ease;
+}
+
+.edit-profile-btn:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+  transform: translateY(-2px);
+}
+
+/* Edit Profile Modal */
+.edit-profile-modal .ant-modal-content {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+}
+
+.edit-profile-modal .ant-modal-header {
+  border-bottom: none;
+  padding: 16px 24px;
+}
+
+.edit-profile-modal .ant-modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.edit-profile-modal .ant-modal-body {
+  padding: 0 24px 24px;
+}
+
+.edit-profile-modal .ant-form-item {
+  margin-bottom: 20px;
+}
+
+.edit-profile-modal .ant-form-item-label > label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.edit-profile-modal .ant-input,
+.edit-profile-modal .ant-input-password {
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.edit-profile-modal .ant-input-prefix {
+  color: #1890ff;
+  margin-right: 8px;
+}
+
+.edit-profile-modal .ant-upload {
+  width: 100%;
+}
+
+.edit-profile-modal .ant-btn {
+  border-radius: 6px;
+  font-size: 14px;
+  height: 40px;
+}
+
+.edit-profile-modal .ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  width: 100px;
+}
+
+.edit-profile-modal .ant-btn-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.edit-profile-modal .ant-btn-default {
+  border-color: #d9d9d9;
+  color: #595959;
+  width: 100px;
+}
+
+.edit-profile-modal .ant-btn-default:hover {
+  border-color: #1890ff;
+  color: #1890ff;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 16px;
+  }
+
+  .profile-card {
+    padding: 16px;
+  }
+
+  .profile-header .ant-avatar {
+    size: 100;
+  }
+
+  .profile-header h2 {
+    font-size: 24px;
+  }
+
+  .profile-header .ant-typography-secondary {
+    font-size: 14px;
+  }
+
+  .info-item {
+    font-size: 14px;
+  }
+
+  .edit-profile-btn {
+    font-size: 14px;
+    height: 36px;
+  }
+
+  .edit-profile-modal .ant-modal-content {
+    padding: 16px;
+  }
+
+  .edit-profile-modal .ant-modal-title {
+    font-size: 18px;
+  }
+
+  .edit-profile-modal .ant-form-item {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-header .ant-avatar {
+    size: 80;
+  }
+
+  .profile-header h2 {
+    font-size: 20px;
+  }
+
+  .profile-header .ant-typography-secondary {
+    font-size: 13px;
+  }
+
+  .info-item {
+    font-size: 13px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .edit-profile-btn {
+    font-size: 13px;
+    height: 32px;
+  }
+
+  .edit-profile-modal .ant-modal-content {
+    padding: 12px;
+  }
+
+  .edit-profile-modal .ant-modal-title {
+    font-size: 16px;
+  }
+
+  .edit-profile-modal .ant-btn {
+    font-size: 13px;
+    height: 36px;
+    width: 80px;
+  }
+}

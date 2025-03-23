@@ -1,0 +1,393 @@
+/* Job Detail Container */
+.job-detail-container-1 {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 16px;
+  background-color: #f5f7fa;
+}
+
+/* Job Header Card */
+.job-header-card-1 {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  background-color: #fff;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.job-header-card-1:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.job-title-1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.company-name-1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #595959;
+  margin-bottom: 8px;
+}
+
+.location-1 {
+  font-size: 16px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.location-1 .anticon {
+  color: #1890ff;
+  font-size: 18px;
+}
+
+.apply-button-col-1 {
+  text-align: right;
+}
+
+.apply-button-col-1 .ant-btn {
+  border-radius: 6px;
+  font-size: 16px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.apply-button-col-1 .ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.apply-button-col-1 .ant-btn-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+  transform: translateY(-2px);
+}
+
+.apply-button-col-1 .ant-btn-default {
+  border-color: #d9d9d9;
+  color: #595959;
+}
+
+.apply-button-col-1 .ant-btn-default:hover {
+  border-color: #1890ff;
+  color: #1890ff;
+  transform: translateY(-2px);
+}
+
+/* Job Content */
+.job-content {
+  margin-top: 24px;
+}
+
+/* Job Description Card */
+.job-description-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  background-color: #fff;
+  margin-bottom: 24px;
+}
+
+.job-description-card .ant-card-head {
+  border-bottom: none;
+}
+
+.job-description-card .ant-card-head-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.job-description-card p {
+  font-size: 16px;
+  color: #595959;
+  line-height: 1.6;
+}
+
+/* Skills Card */
+.skills-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  background-color: #fff;
+}
+
+.skills-card .ant-card-head {
+  border-bottom: none;
+}
+
+.skills-card .ant-card-head-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-size: 14px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background-color: #bae7ff;
+  transform: translateY(-2px);
+}
+
+/* Job Info Card */
+.job-info-card-1 {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  background-color: #fff;
+  margin-bottom: 24px;
+}
+
+.info-item-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.info-item-1:last-child {
+  border-bottom: none;
+}
+
+.info-label-1 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-label-1 .anticon {
+  color: #1890ff;
+  font-size: 18px;
+}
+
+.info-value-1 {
+  font-size: 16px;
+  color: #595959;
+}
+
+/* Company Card */
+.company-card-1 {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  background-color: #fff;
+}
+
+.company-card-1 .ant-card-head {
+  border-bottom: none;
+}
+
+.company-card-1 .ant-card-head-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.company-card-1 .ant-btn-link {
+  color: #1890ff;
+  font-size: 14px;
+}
+
+.company-card-1 .ant-btn-link:hover {
+  color: #40a9ff;
+}
+
+.company-info-1 {
+  text-align: center;
+}
+
+.company-logo-1 {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.company-info-1 h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .job-detail-container-1 {
+    padding: 0 12px;
+  }
+
+  .job-header-card-1 {
+    padding: 16px;
+  }
+
+  .job-title-1 {
+    font-size: 24px;
+  }
+
+  .company-name-1 {
+    font-size: 16px;
+  }
+
+  .location-1 {
+    font-size: 14px;
+  }
+
+  .apply-button-col-1 .ant-btn {
+    font-size: 14px;
+    height: 36px;
+  }
+
+  .job-description-card,
+  .skills-card,
+  .job-info-card-1,
+  .company-card-1 {
+    padding: 16px;
+  }
+
+  .job-description-card .ant-card-head-title,
+  .skills-card .ant-card-head-title,
+  .company-card-1 .ant-card-head-title {
+    font-size: 18px;
+  }
+
+  .job-description-card p {
+    font-size: 14px;
+  }
+
+  .skill-tag {
+    font-size: 13px;
+    padding: 3px 10px;
+  }
+
+  .info-item-1 {
+    padding: 10px 0;
+  }
+
+  .info-label-1,
+  .info-value-1 {
+    font-size: 14px;
+  }
+
+  .company-logo-1 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .company-info-1 h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .apply-button-col-1 {
+    text-align: center;
+  }
+
+  .apply-button-col-1 .ant-btn {
+    font-size: 14px;
+    height: 36px;
+  }
+
+  .job-description-card,
+  .skills-card,
+  .job-info-card-1,
+  .company-card-1 {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .job-detail-container-1 {
+    padding: 0 8px;
+  }
+
+  .job-header-card-1 {
+    padding: 12px;
+  }
+
+  .job-title-1 {
+    font-size: 20px;
+  }
+
+  .company-name-1 {
+    font-size: 14px;
+  }
+
+  .location-1 {
+    font-size: 13px;
+  }
+
+  .apply-button-col-1 .ant-btn {
+    font-size: 13px;
+    height: 32px;
+  }
+
+  .job-description-card,
+  .skills-card,
+  .job-info-card-1,
+  .company-card-1 {
+    padding: 12px;
+  }
+
+  .job-description-card .ant-card-head-title,
+  .skills-card .ant-card-head-title,
+  .company-card-1 .ant-card-head-title {
+    font-size: 16px;
+  }
+
+  .job-description-card p {
+    font-size: 13px;
+  }
+
+  .skill-tag {
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+
+  .info-item-1 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px 0;
+  }
+
+  .info-label-1,
+  .info-value-1 {
+    font-size: 13px;
+  }
+
+  .company-logo-1 {
+    width: 50px;
+    height: 50px;
+  }
+
+  .company-info-1 h3 {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,150 @@
+/* Register Form Styles */
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f2f5;
+  padding: 0;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.register-card .ant-card-head {
+  background: #002855;
+  color: white;
+  border-bottom: none;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+.register-card .ant-card-head-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0;
+}
+
+.register-card .ant-card-body {
+  padding: 24px 32px;
+}
+
+.register-form-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #002855;
+}
+
+.ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+.ant-form-item-required::before {
+  color: #ff4d4f !important;
+  margin-right: 4px !important;
+}
+
+.ant-input,
+.ant-input-password {
+  height: 45px;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+}
+
+.ant-input:hover,
+.ant-input-password:hover {
+  border-color: #0078ff;
+}
+
+.ant-input:focus,
+.ant-input-password:focus {
+  border-color: #0078ff;
+  box-shadow: 0 0 0 2px rgba(0, 120, 255, 0.2);
+}
+
+.redirect-login {
+  display: block;
+  text-align: center;
+  color: #666;
+}
+
+.redirect-login:hover {
+  color: #0066dd;
+  text-decoration: underline;
+}
+
+.button-container-w {
+  margin-top: 24px;
+}
+
+.register-btn-w {
+  width: 100%;
+  height: 45px;
+  background-color: #0078ff;
+  border-color: #0078ff;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.register-btn-w:hover {
+  background-color: #0066dd;
+  border-color: #0066dd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 120, 255, 0.3);
+}
+
+.back-button {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: white;
+  padding: 0;
+  font-size: 18px;
+}
+
+.back-button:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background: transparent;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .register-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .register-card {
+    max-width: 90%;
+  }
+
+  .register-card .ant-card-body {
+    padding: 20px;
+  }
+
+  .register-card .ant-card-head-title {
+    font-size: 1.1rem;
+  }
+
+  .register-form-title {
+    font-size: 20px;
+  }
+}
+

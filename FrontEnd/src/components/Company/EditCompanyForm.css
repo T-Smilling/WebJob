@@ -1,0 +1,72 @@
+/* Edit Company Form Styles */
+.edit-company-form {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.edit-company-form .ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+.edit-company-form .ant-input {
+  border-radius: 6px;
+  padding: 12px;
+  height: auto;
+}
+
+.edit-company-form .ant-input-textarea textarea {
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.edit-company-form .ant-upload-list-item {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.edit-company-form .ant-upload-select {
+  border-radius: 6px;
+}
+
+.edit-company-form .ant-btn {
+  border-radius: 6px;
+  height: 44px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.edit-company-form .ant-btn-primary {
+  background: #1890ff;
+  border-color: #1890ff;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+}
+
+.edit-company-form .ant-btn-primary:hover {
+  background: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.edit-company-form .form-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .edit-company-form {
+    padding: 24px 16px;
+  }
+
+  .edit-company-form .ant-form-item {
+    margin-bottom: 16px;
+  }
+}
+

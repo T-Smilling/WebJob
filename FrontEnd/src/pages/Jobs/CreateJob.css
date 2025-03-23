@@ -1,0 +1,87 @@
+/* Create Job Styles */
+.create-job-modal-content {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.create-job-modal-content .ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+.create-job-modal-content .ant-input {
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.create-job-modal-content .ant-input-textarea textarea {
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.create-job-modal-content .ant-select-selector {
+  border-radius: 6px !important;
+  padding: 5px 12px !important;
+}
+
+.create-job-modal-content .ant-picker {
+  border-radius: 6px;
+  width: 100%;
+}
+
+.create-job-modal-content .ant-btn {
+  border-radius: 6px;
+  height: 44px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.create-job-modal-content .ant-btn-primary {
+  background: #1890ff;
+  border-color: #1890ff;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+}
+
+.create-job-modal-content .ant-btn-primary:hover {
+  background: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.create-job-modal-content .form-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .create-job-modal-content {
+    padding: 20px 16px;
+  }
+
+  .create-job-modal-content .ant-row {
+    flex-direction: column;
+  }
+
+  .create-job-modal-content .ant-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .create-job-modal-content {
+    padding: 16px 12px;
+  }
+
+  .create-job-modal-content .ant-form-item {
+    margin-bottom: 16px;
+  }
+}
+

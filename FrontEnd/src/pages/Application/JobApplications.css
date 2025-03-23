@@ -1,0 +1,108 @@
+.job-applications-container {
+  padding: 24px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  margin: 16px;
+  min-height: 80vh;
+}
+
+.job-applications-container h2 {
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.job-applications-list {
+  margin-top: 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.job-applications-list .ant-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e8e8e8;
+  transition: all 0.3s ease;
+  background: #fafafa;
+  margin: 8px 0;
+  border-radius: 6px;
+}
+
+.job-applications-list .ant-list-item:hover {
+  background: #e6f7ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.job-applications-list .ant-list-item-meta-title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+}
+
+.job-applications-list .ant-list-item-meta-description {
+  margin-top: 8px;
+  color: #555;
+}
+
+.job-applications-list .ant-list-item-meta-description a {
+  color: #1890ff;
+  font-weight: 500;
+}
+
+.job-applications-list .ant-list-item-meta-description a:hover {
+  color: #40a9ff;
+  text-decoration: underline;
+}
+
+.interview-item {
+  padding: 12px 0;
+  border-top: 1px solid #e8e8e8;
+  background: #f9f9f9;
+  border-radius: 4px;
+  margin: 4px 0;
+}
+
+.interview-item:first-child {
+  border-top: none;
+}
+
+.interview-item .ant-space-item {
+  color: #444;
+}
+
+.no-data-apply {
+  display: block;
+  text-align: center;
+  margin-top: 24px;
+  color: #666;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.job-applications-container .pagination-container {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.job-applications-container .pagination-container .ant-pagination-item {
+  border-radius: 4px;
+}
+
+.job-applications-container .pagination-container .ant-pagination-item-active {
+  background: #1890ff;
+  border-color: #1890ff;
+}
+
+.job-applications-container .pagination-container .ant-pagination-item-active a {
+  color: #fff;
+}
+
+.job-applications-list .ant-list-item-actions {
+  margin-left: 16px;
+}

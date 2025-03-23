@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông báo phỏng vấn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        .content {
+            margin-top: 10px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <p class="title">Thư mời phỏng vấn</p>
+    <div class="content">
+        <p>Xin chào,</p>
+        <p>Bạn đã được mời tham gia buổi phỏng vấn cho vị trí <strong th:text="${jobTitle}"></strong> tại công ty <strong th:text="${companyName}"></strong>.</p>
+        <ul>
+            <li><strong>Thời gian:</strong> <span th:text="${interviewDate}"></span></li>
+            <li><strong>Hình thức:</strong> <span th:text="${interviewType}"></span></li>
+
+            <!-- Chỉ hiển thị địa điểm nếu là phỏng vấn trực tiếp -->
+            <li th:if="${interviewType == 'Offline'}"><strong>Địa điểm:</strong> <span th:text="${location}"></span></li>
+
+            <!-- Chỉ hiển thị link cuộc họp nếu là phỏng vấn online -->
+            <li th:if="${interviewType == 'Online'}"><strong>Link cuộc họp:</strong> <a th:href="${meetingLink}" th:text="${meetingLink}"></a></li>
+        </ul>
+        <p>Vui lòng chuẩn bị kỹ lưỡng và đến đúng giờ.</p>
+    </div>
+    <div class="footer">
+        <p>Trân trọng,</p>
+        <p>Đội ngũ tuyển dụng</p>
+    </div>
+</div>
+</body>
+</html>

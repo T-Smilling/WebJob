@@ -1,0 +1,204 @@
+.all-company-list-container {
+  padding: 32px;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+.all-company-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.all-company-list-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.add-company-button {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 40px;
+  padding: 0 16px;
+}
+
+.add-company-button:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.all-company-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+}
+
+.all-company-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.all-company-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background-color: #f9f9f9;
+}
+
+.all-company-logo {
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.all-company-name-button {
+  padding: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1890ff;
+  height: auto;
+  width: 100%;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.all-company-name-button:hover {
+  color: #40a9ff;
+}
+
+.all-company-info {
+  padding-top: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #595959;
+}
+
+.info-icon {
+  color: #1890ff;
+  font-size: 14px;
+}
+
+.all-job-posts-section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e8e8e8;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-post-item {
+  padding: 2px 0;
+  font-size: 14px;
+  color: #595959;
+}
+
+.no-data {
+  color: #888;
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .all-company-list-container {
+    padding: 24px;
+  }
+
+  .all-company-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .all-company-list-title {
+    font-size: 24px;
+  }
+
+  .add-company-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .all-company-logo {
+    size: 100;
+  }
+
+  .all-company-name-button {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .all-company-list-container {
+    padding: 16px;
+  }
+
+  .all-company-card {
+    margin-bottom: 16px;
+  }
+
+  .all-company-logo {
+    size: 80;
+  }
+
+  .all-company-name-button {
+    font-size: 14px;
+  }
+
+  .info-item {
+    font-size: 13px;
+  }
+
+  .job-post-item {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .all-company-list-title {
+    font-size: 20px;
+  }
+
+  .all-company-logo {
+    size: 60;
+  }
+
+  .all-company-name-button {
+    font-size: 13px;
+  }
+
+  .info-item {
+    font-size: 12px;
+  }
+
+  .job-post-item {
+    font-size: 12px;
+  }
+
+  .add-company-button {
+    font-size: 12px;
+    height: 36px;
+  }
+}

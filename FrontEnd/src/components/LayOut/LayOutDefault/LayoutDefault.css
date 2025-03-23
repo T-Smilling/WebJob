@@ -1,0 +1,432 @@
+/* Global Styles */
+:root {
+  --primary-color: #0078ff;
+  --secondary-color: #003366;
+  --accent-color: #f5f5f5;
+  --text-color: #333;
+  --light-text: #fff;
+  --border-radius: 6px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Roboto", "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+}
+
+.layout-default {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout-default__main {
+  flex: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header Styles - Updated with gradient background */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 70px;
+  background: linear-gradient(to right, #002855, #004080);
+  color: var(--light-text);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo-default {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-default img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.logo-default img:hover {
+  transform: scale(1.1);
+}
+
+.logo-default a {
+  color: var(--light-text);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+/* Menu Styles - Updated for Ant Design Menu */
+.menu {
+  background-color: transparent !important;
+  border-bottom: none !important;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Override Ant Design menu styles */
+.ant-menu-dark {
+  background: transparent !important;
+}
+
+.ant-menu-horizontal {
+  line-height: 70px !important;
+  border-bottom: none !important;
+}
+
+.ant-menu-item {
+  padding: 0 15px !important;
+  margin: 0 5px !important;
+  border-bottom: none !important;
+}
+
+.ant-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-bottom: none !important;
+}
+
+.ant-menu-item-selected {
+  background-color: transparent !important;
+  border-bottom: none !important;
+}
+
+.ant-menu-item-selected::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 30px !important;
+  height: 3px !important;
+  background-color: var(--light-text) !important;
+  border-radius: 1.5px !important;
+  border-bottom: none !important;
+}
+
+.ant-menu-item a,
+.menu-item-label {
+  color: var(--light-text) !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  transition: var(--transition) !important;
+}
+
+.ant-menu-item:hover a,
+.menu-item-label:hover {
+  color: var(--light-text) !important;
+}
+
+/* Dropdown styles */
+.ant-dropdown-menu {
+  border-radius: var(--border-radius) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  padding: 12px 0 !important;
+  background: linear-gradient(to right, #0055a5, #0078ff) !important; /* Gradient sáng hơn */
+  border: none !important;
+  min-width: 240px !important;
+}
+
+.ant-dropdown-menu-item {
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 4px !important;
+  transition: var(--transition) !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background-color: transparent !important;
+}
+
+.ant-dropdown-menu-item a {
+  display: block !important;
+  padding: 12px 24px !important;
+  color: var(--light-text) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: var(--transition) !important;
+}
+
+.ant-dropdown-menu-item a:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important; /* Tăng độ sáng của hover effect */
+  color: var(--light-text) !important;
+}
+
+.menu-item-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Xóa dấu tam giác (đã thực hiện trước đó) */
+.menu-item-label::after {
+  content: none !important;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-btn,
+.register-btn {
+  padding: 6px 16px;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.login-btn {
+  color: var(--light-text);
+  background-color: transparent;
+  border: 1px solid var(--light-text);
+}
+
+.login-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.register-btn {
+  color: var(--secondary-color);
+  background-color: var(--light-text);
+}
+
+.register-btn:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+/* Footer Styles - Updated with centered content */
+.footer-container {
+  background: linear-gradient(to right, #002855, #004080);
+  color: var(--light-text);
+  padding: 3rem 2rem 1rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  margin-bottom: 2rem;
+}
+
+.footer-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.footer-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 1.5px;
+}
+
+.footer-text {
+  color: #bbb;
+  margin-bottom: 0.75rem;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer-links .footer-text {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.footer-links .footer-text:hover {
+  color: var(--light-text);
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer-icons {
+  font-size: 1.5rem;
+  color: #bbb;
+  transition: var(--transition);
+}
+
+.footer-icons:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #bbb;
+  font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .header-container {
+    padding: 0 1rem;
+  }
+
+  .ant-menu-item {
+    padding: 0 10px !important;
+  }
+
+  .ant-dropdown-menu {
+    min-width: 220px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .logo-default {
+    margin-bottom: 1rem;
+  }
+
+  .menu {
+    order: 3;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .auth-buttons {
+    order: 2;
+  }
+
+  .footer-container {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .footer-col {
+    min-width: 100%;
+  }
+
+  .ant-dropdown-menu {
+    min-width: 200px !important;
+  }
+
+  .ant-dropdown-menu-item a {
+    font-size: 15px !important;
+    padding: 10px 20px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .auth-buttons {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ant-menu-horizontal {
+    flex-wrap: wrap;
+  }
+
+  .ant-menu-item {
+    flex: 1;
+    min-width: 40%;
+    text-align: center;
+  }
+
+  .ant-dropdown-menu {
+    min-width: 180px !important;
+  }
+
+  .ant-dropdown-menu-item a {
+    font-size: 14px !important;
+    padding: 8px 16px !important;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

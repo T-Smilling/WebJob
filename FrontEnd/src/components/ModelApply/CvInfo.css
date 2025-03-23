@@ -1,0 +1,32 @@
+.cv-info-container {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 16px;
+  margin-top: 10px;
+  background-color: #f5fffa;
+  border-color: #52c41a;
+}
+
+.cv-info-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cv-info-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #52c41a;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.cv-info-link {
+  margin-left: auto;
+  color: #1890ff;
+  text-decoration: none;
+}
+
+.cv-info-text {
+  margin: 5px 0;
+}
