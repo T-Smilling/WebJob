@@ -1,0 +1,50 @@
+# Các file/thư mục chung
+.DS_Store
+.idea/
+.vscode/
+*.log
+*.tmp
+*.swp
+
+# File chứa thông tin nhạy cảm
+.env
+.env.*
+*.key
+*.pem
+*.crt
+*.pfx
+
+# Back-end (Spring Boot)
+BackEnd/target/
+BackEnd/.mvn/
+BackEnd/mvnw
+BackEnd/mvnw.cmd
+BackEnd/application-*.yml
+BackEnd/application.yml
+BackEnd/*.iml
+BackEnd/*.jar
+BackEnd/*.war
+BackEnd/*.class
+
+# Front-end (React, Angular, Vue)
+FrontEnd/node_modules/
+FrontEnd/package-lock.json
+FrontEnd/yarn.lock
+FrontEnd/build/
+FrontEnd/.env
+FrontEnd/.env.*
+FrontEnd/.cache/
+FrontEnd/dist/
+FrontEnd/coverage/
+FrontEnd/.nuxt/
+FrontEnd/.angular/
+FrontEnd/.next/
+FrontEnd/out/
+
+# Docker & Database
+docker-compose.override.yml
+*.sql
+*.db
+*.sqlite
+mysql-data/
+postgres-data/
