@@ -1,12 +1,15 @@
 package com.javaweb.jobIT.service;
 
+import com.javaweb.jobIT.constant.RoleEnum;
 import com.javaweb.jobIT.dto.request.user.AuthenticationRequest;
 import com.javaweb.jobIT.dto.request.user.CheckTokenRequest;
 import com.javaweb.jobIT.dto.response.user.AuthenticationResponse;
 import com.javaweb.jobIT.dto.response.user.CheckTokenResponse;
+import com.javaweb.jobIT.entity.RoleEntity;
 import com.javaweb.jobIT.entity.UserEntity;
 import com.javaweb.jobIT.exception.AppException;
 import com.javaweb.jobIT.exception.ErrorCode;
+import com.javaweb.jobIT.repository.RoleRepository;
 import com.javaweb.jobIT.repository.UserRepository;
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
@@ -21,15 +24,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.text.ParseException;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
-import java.util.StringJoiner;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +39,7 @@ import java.util.UUID;
 public class AuthenticationService {
     private final UserRepository userRepository;
     private final BaseRedisService baseRedisService;
+    private final RoleRepository roleRepository;
 
     @NonFinal
     @Value("${jwt.signerKey}")
@@ -73,7 +76,7 @@ public class AuthenticationService {
                 : signedJWT.getJWTClaimsSet().getExpirationTime();
 
         boolean verified = signedJWT.verify(jwsVerifier);
-        if (!verified && expiryTime.after(new Date())) throw new AppException(ErrorCode.UNAUTHENTICATED);
+        if (!verified && expiryTime.before(new Date())) throw new AppException(ErrorCode.UNAUTHENTICATED);
 
         String jwtId = signedJWT.getJWTClaimsSet().getJWTID();
         String logoutToken = (String) baseRedisService.get("logoutToken:" + jwtId);
@@ -138,7 +141,7 @@ public class AuthenticationService {
 
         SignedJWT signedJWT = SignedJWT.parse(token);
         String jwtId = signedJWT.getJWTClaimsSet().getJWTID();
-        baseRedisService.set("token:" + jwtId, token, 7);
+        baseRedisService.setForMinutes("token:" + jwtId, token, VALID_DURATION/60);
 
         return AuthenticationResponse.builder()
                 .token(token)
@@ -157,7 +160,7 @@ public class AuthenticationService {
 
                 baseRedisService.delete("token:" + jwtId);
 
-                baseRedisService.set("logoutToken:" + jwtId, token,1);
+                baseRedisService.setForMinutes("logoutToken:" + jwtId, token,VALID_DURATION/60);
 
                 log.info("Token {} đã bị vô hiệu hóa thành công! ", jwtId);
             }
@@ -187,9 +190,49 @@ public class AuthenticationService {
         String currentToken = (String) baseRedisService.get("token:" + jwtId);
 
         if (currentToken != null && currentToken.equals(token)) {
-            baseRedisService.set("token:" + jwtId, tokenRefresh, 7);
+            baseRedisService.setForMinutes("token:" + jwtId, tokenRefresh, VALID_DURATION/60);
         }
 
         return AuthenticationResponse.builder().token(tokenRefresh).build();
+    }
+
+    public AuthenticationResponse googleLogin(OAuth2User oAuth2User) {
+        String email = oAuth2User.getAttribute("email");
+        String name = oAuth2User.getAttribute("name");
+        String avatarUrl = oAuth2User.getAttribute("picture");
+        if (email == null) {
+            log.error("Email from Google is null");
+            throw new AppException(ErrorCode.INVALID_GOOGLE_EMAIL);
+        }
+        RoleEntity role = roleRepository.findById(String.valueOf(RoleEnum.CANDIDATE)).orElseThrow(() -> new AppException(ErrorCode.ROLE_NOT_FOUND));
+        Set<RoleEntity> roles = new HashSet<>();
+        roles.add(role);
+        UserEntity user = userRepository.findByEmail(email)
+                .orElseGet(() -> {
+                    UserEntity newUser = new UserEntity();
+                    newUser.setEmail(email);
+                    newUser.setUsername(email.split("@")[0]);
+                    newUser.setFullName(name);
+                    newUser.setPassword("");
+                    newUser.setAvatarUrl(avatarUrl != null ? avatarUrl : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png");
+                    newUser.setRoles(roles);
+                    newUser.setStatus("active");
+                    newUser.setEmailVerified(true);
+                    return userRepository.save(newUser);
+                });
+
+        String token = generateToken(user);
+        try {
+            SignedJWT signedJWT = SignedJWT.parse(token);
+            String jwtId = signedJWT.getJWTClaimsSet().getJWTID();
+            baseRedisService.setForMinutes("token:" + jwtId, token, VALID_DURATION/60);
+        } catch (ParseException e) {
+            log.error("Error parsing JWT: {}", e.getMessage());
+            throw new RuntimeException(e);
+        }
+
+        return AuthenticationResponse.builder()
+                .token(token)
+                .build();
     }
 }

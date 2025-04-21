@@ -29,6 +29,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -146,8 +147,9 @@ public class JobPostService {
     }
 
     public PageJobPost getAllJobPost(int page, int size){
-        Pageable pageable = PageRequest.of(page,size);
-        Page<JobPostResponse> result = jobPostRepository.findAll(pageable).map(this::convertJobPostResponse);
+        Pageable pageable = PageRequest.of(page, size);
+        Instant currentTime = Instant.now();
+        Page<JobPostResponse> result = jobPostRepository.findAllSorted(currentTime,pageable).map(this::convertJobPostResponse);
         return PageJobPost.builder()
                 .content(result.getContent())
                 .page(result.getNumber())
@@ -156,6 +158,7 @@ public class JobPostService {
                 .totalPages(result.getTotalPages())
                 .build();
     }
+
     public List<JobPostResponse> findTop10Job(){
         List<JobPostEntity> jobPostEntities = jobPostRepository.findTop10ByOrderBySalaryDesc();
         return jobPostEntities.stream().map(this::convertJobPostResponse).toList();

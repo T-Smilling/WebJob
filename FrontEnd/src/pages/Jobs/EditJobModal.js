@@ -14,12 +14,12 @@ const EditJobModal = ({ visible, onCancel, onFinish, job }) => {
       location: job?.location,
       salary: job?.salary,
       jobType: job?.jobType,
+      jobLevel: job?.jobLevel,
       updateSkills: job?.requiredSkills?.map((skill) => skill.name) || [],
     })
   }, [job, form])
 
   const handleFinish = (values) => {
-    console.log(values)
     onFinish(values)
   }
 
@@ -43,6 +43,7 @@ const EditJobModal = ({ visible, onCancel, onFinish, job }) => {
           location: job?.location,
           salary: job?.salary,
           jobType: job?.jobType,
+          jobLevel: job?.jobLevel,
           updateSkills: job?.requiredSkills?.map((skill) => skill.name) || [],
         }}
       >
@@ -67,6 +68,18 @@ const EditJobModal = ({ visible, onCancel, onFinish, job }) => {
             <Option value="FULL_TIME">FULL_TIME</Option>
             <Option value="PART_TIME">PART_TIME</Option>
             <Option value="REMOTE">REMOTE</Option>
+          </Select>
+        </Form.Item>
+        <Form.Item
+          name="jobLevel"
+          label="Job Level"
+        >
+          <Select placeholder="Select job level...">
+            <Option value="INTERN">Intern</Option>
+            <Option value="JUNIOR">Junior</Option>
+            <Option value="MID">Middle</Option>
+            <Option value="SENIOR">Senior</Option>
+            <Option value="LEADER">Leader</Option>
           </Select>
         </Form.Item>
 

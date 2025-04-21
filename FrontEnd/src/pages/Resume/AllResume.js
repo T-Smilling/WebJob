@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { Card, Button, Avatar, Switch, message, Row, Col, Modal } from "antd"
 import "./AllResume.css"
@@ -89,10 +87,6 @@ const AllResume = () => {
     <div className="resume-manager">
       <Row gutter={16}>
         <Col xs={24} md={16} className="resume-list">
-          <Card title="CV đã tạo trên web" extra={<Button type="primary">+ Tạo mới</Button>}>
-            <div className="empty-resume">Bạn chưa tạo CV nào</div>
-          </Card>
-
           <Card
             title="CV đã tải lên web"
             extra={

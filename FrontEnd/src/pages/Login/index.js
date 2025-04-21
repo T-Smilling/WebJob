@@ -5,7 +5,6 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { rules } from "../../utils/rules"
 import { login } from "../../services/userService"
 import Cookies from "js-cookie"
-import HeaderLayout from "../../components/LayOut/LayOutDefault/HeaderLayout"
 import { useDispatch } from "react-redux"
 import { getUserScopes, hasScope } from "../../utils/authUtils"
 import { checkLogin } from "../../actions/login"
@@ -26,7 +25,7 @@ function Login() {
         })
         return
       }
-      Cookies.set("token", response.result.token, { expires: 7, secure: true })
+      Cookies.set("token", response.result.token, { expires: 1, secure: true })
 
       dispatch(checkLogin(true))
       const scopes = getUserScopes()
@@ -44,7 +43,9 @@ function Login() {
       })
     }
   }
-
+  const loginWithGoogle = () =>{
+    window.location.href = "http://localhost:8080/auth/google-login"
+  }
   return (
     <>
       {contextHolder}
@@ -63,7 +64,7 @@ function Login() {
               <Input placeholder="Tên tài khoản" />
             </Form.Item>
 
-            <Form.Item name="password" label="Mật khẩu" rules={[rules.required]}>
+            <Form.Item  name="password" label="Mật khẩu" rules={[rules.required]}>
               <Input.Password placeholder="Mật khẩu" />
             </Form.Item>
 
@@ -85,7 +86,7 @@ function Login() {
               </Form.Item>
 
               <Form.Item>
-                <Button icon={<GoogleOutlined />} className="google-btn-w">
+                <Button icon={<GoogleOutlined />} className="google-btn-w" onClick={loginWithGoogle}>
                   Đăng nhập bằng Google
                 </Button>
               </Form.Item>

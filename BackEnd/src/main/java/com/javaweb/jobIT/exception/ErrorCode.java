@@ -19,7 +19,8 @@ public enum ErrorCode {
     NOT_CREATED_INTERVIEW(1512, "Not created interview", HttpStatus.BAD_REQUEST),
     NOT_UPDATE(1513, "Cannot update because the resume is under review.", HttpStatus.BAD_REQUEST),
     JOB_NOT_ACTIVE(1514, "Job not active", HttpStatus.BAD_REQUEST),
-    ;
+    INVALID_GOOGLE_EMAIL(1515, "Invalid google email", HttpStatus.BAD_REQUEST),
+    JOB_APPLICATION_EXPIRED(1516,"Job application expried" ,HttpStatus.BAD_REQUEST ),;
 
     ErrorCode(int code, String message, HttpStatusCode statusCode) {
         this.code = code;

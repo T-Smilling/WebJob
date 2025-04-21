@@ -30,7 +30,8 @@ public class SecurityConfig {
     };
 
     private static final String[] PUBLIC_ENDPOINTS_GET = {
-            "/company/**","/employee/**","/jobs/**","/users/change-password/**","/users/confirm-account/**"
+            "/company/**","/employee/**","/jobs/**","/users/change-password/**","/users/confirm-account/**",
+            "/auth/google-login", "/auth/google-login-success"
     };
 
     private final CustomJwtDecoder customJwtDecoder;
@@ -41,7 +42,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, PUBLIC_ENDPOINTS_GET).permitAll()
                 .anyRequest().authenticated()
         );
-
+        httpSecurity.oauth2Login(oauth2 -> oauth2.loginPage("/auth/google-login").defaultSuccessUrl("/auth/google-login-success",true));
         httpSecurity.oauth2ResourceServer(oauth2 -> oauth2.jwt(jwtConfigurer -> jwtConfigurer
                         .decoder(customJwtDecoder)
                         .jwtAuthenticationConverter(jwtAuthenticationConverter()))
@@ -60,7 +61,7 @@ public class SecurityConfig {
                         .allowedOrigins("http://localhost:8080","http://localhost:3000")
                         .allowedMethods("GET", "POST", "PUT", "DELETE") // Allowed HTTP methods
                         .allowedHeaders("*") // Allowed request headers
-                        .allowCredentials(false)
+                        .allowCredentials(true)
                         .maxAge(3600);
             }
         };

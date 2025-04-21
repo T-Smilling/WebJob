@@ -4,7 +4,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
   margin-bottom: 0;
-  height: 136px; /* Cố định chiều cao */
+  min-height: 136px;
   display: flex;
   align-items: center;
 }
@@ -18,15 +18,14 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 80%; /* Giữ nguyên, nhưng đảm bảo không ảnh hưởng đến job-item-company */
 }
 
 .job-item-title {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 8px;
-  white-space: nowrap; /* Ngăn tiêu đề xuống dòng */
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
@@ -48,6 +47,8 @@
   font-size: 14px;
   color: #595959;
   margin-bottom: 8px;
+  max-height: 40px;
+  overflow-y: auto;
 }
 
 .job-item-details span {
@@ -58,11 +59,12 @@
 
 .job-item-skills {
   display: flex;
-  flex-wrap: nowrap; /* Ngăn xuống dòng */
+  flex-wrap: nowrap;
   gap: 8px;
   margin-bottom: 8px;
-  overflow-x: auto; /* Thêm thanh cuộn ngang nếu quá nhiều kỹ năng */
+  overflow-x: auto;
   max-width: 100%;
+  max-height: 30px;
 }
 
 .job-item-skills .ant-tag {
@@ -72,17 +74,30 @@
 }
 
 .job-item-company {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
   font-size: 14px;
   color: #595959;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+  width: 100%; /* Đảm bảo job-item-company chiếm toàn bộ chiều rộng */
+  gap: 10px; /* Thêm khoảng cách giữa hai div con */
 }
 
+.job-item-company div {
+  flex-shrink: 0;
+  white-space: nowrap; /* Áp dụng white-space: nowrap cho từng div con */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.createdAt{
+  font-style: italic
+}
 .job-item-button {
   display: flex;
   justify-content: flex-end;
+  min-width: 20%;
 }
 
 .apply-button {
@@ -101,57 +116,61 @@
 
 @media (max-width: 768px) {
   .job-item {
-    padding: 10px;
-    height: 150px; /* Tăng chiều cao trên màn hình nhỏ để phù hợp */
+      padding: 10px;
+      min-height: 150px;
   }
 
   .job-item-main {
-    max-width: 100%;
-    margin: 0;
+      max-width: 100%;
+      margin: 0;
   }
 
   .job-item-title {
-    font-size: 16px;
+      font-size: 16px;
   }
 
   .job-item-details {
-    flex-direction: column;
-    gap: 8px;
-    font-size: 13px;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+      max-height: 60px;
+      overflow-y: auto;
   }
 
-  .job-item-skills .ant-tag {
-    font-size: 11px;
+  .job-item-skills {
+      max-height: 25px;
   }
 
   .job-item-company {
-    font-size: 13px;
+      font-size: 13px;
   }
 
   .job-item-button {
-    justify-content: flex-start;
+      justify-content: flex-start;
+      min-width: 100%;
   }
 
   .apply-button {
-    font-size: 13px;
-    height: 30px;
+      font-size: 13px;
+      height: 30px;
   }
 }
 
 @media (max-width: 480px) {
   .job-item-title {
-    font-size: 14px;
+      font-size: 14px;
   }
 
   .job-item-details {
-    font-size: 12px;
+      font-size: 12px;
+      max-height: 50px;
   }
 
-  .job-item-skills .ant-tag {
-    font-size: 10px;
+  .job-item-skills {
+      max-height: 20px;
   }
 
   .job-item-company {
-    font-size: 12px;
+      font-size: 12px;
   }
 }

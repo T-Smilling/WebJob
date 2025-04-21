@@ -24,7 +24,9 @@ function Dashboard() {
         const responseUser = await getAllUser(0, 2, token);
         const responseCompany = await getAllCompany(0, 2);
         const responseJob = await getAllJob(0, 2);
-
+        console.log(responseUser)
+        console.log(responseCompany)
+        console.log(responseJob)
         setData([
           { name: "Người dùng", value: responseUser.result.totalElements },
           { name: "Công ty", value: responseCompany.result.totalElements },

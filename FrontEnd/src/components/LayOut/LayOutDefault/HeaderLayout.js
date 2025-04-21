@@ -44,6 +44,7 @@ function Header(){
 
     const isEmployer = userScopes && hasScope(userScopes, "ROLE_EMPLOYER");
     const isAdmin = userScopes && hasScope(userScopes, "ROLE_ADMIN");
+
     const handleClick = () =>{
         if (companyId){
             navigate(`/companies/${companyId}`)

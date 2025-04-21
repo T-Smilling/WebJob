@@ -33,6 +33,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
@@ -75,6 +76,9 @@ public class JobApplicationService {
         UserEntity user = getUser();
         if (user.getResumes().isEmpty()){
             throw new AppException(ErrorCode.NOT_FOUND_RESUME);
+        }
+        if (jobPostEntity.getEndDate() != null && jobPostEntity.getEndDate().isBefore(Instant.now())) {
+            throw new AppException(ErrorCode.JOB_APPLICATION_EXPIRED);
         }
         JobApplicationEntity jobApplicationEntity = new JobApplicationEntity();
         jobApplicationEntity.setJobPost(jobPostEntity);

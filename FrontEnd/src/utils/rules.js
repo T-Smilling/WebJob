@@ -8,8 +8,8 @@ export const rules = {
         message: "Số điện thoại phải gồm 10 chữ số!",
     },
     password: {
-        pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
-        message: "Mật khẩu phải có ít nhất 6 ký tự, gồm chữ và số!",
+        pattern: /^[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/,
+        message: "Mật khẩu có thể chứa chữ cái, số hoặc ký tự đặc biệt!",
     },
 };
 

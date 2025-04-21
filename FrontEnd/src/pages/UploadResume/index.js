@@ -64,7 +64,7 @@ function UploadResume() {
           <Upload
             beforeUpload={() => false}
             onChange={handleFileChange}
-            accept=".doc,.docx,.pdf"
+            accept=".pdf"
             maxCount={1}
             fileList={fileList}
             showUploadList={false}
@@ -75,7 +75,7 @@ function UploadResume() {
                   <UploadOutlined style={{ fontSize: 24, color: '#888', marginBottom: 8 }} />
                   <p>Tải lên CV từ máy tính</p>
                   <p style={{ fontSize: 12, color: '#888' }}>
-                    Hỗ trợ định dạng .doc, .docx, .pdf có kích thước dưới 5MB
+                    Hỗ trợ định dạng .pdf có kích thước dưới 5MB
                   </p>
                 </>
               ) : (

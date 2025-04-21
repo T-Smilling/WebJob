@@ -25,6 +25,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -55,9 +56,12 @@ public class CompanyService {
     private CompanyResponse convertResponse(CompanyEntity company,int page, int size) {
         CompanyResponse companyResponse = modelMapper.map(company, CompanyResponse.class);
         companyResponse.setNumberOfEmployees((company.getEmployees() == null || company.getEmployees().isEmpty()) ? 0L : company.getEmployees().size());
+        // Tạo Pageable với sắp xếp
+        Pageable pageable = PageRequest.of(page, size);
+        Instant currentTime = Instant.now();
+        Page<JobPostEntity> jobPostPage = jobPostRepository.findByCompanyIdSorted(company.getId(), currentTime,pageable);
 
-        Pageable pageable = PageRequest.of(page, size, Sort.by("createAt").descending());
-        Page<JobPostEntity> jobPostPage = jobPostRepository.findByCompanyId(company.getId(), pageable);
+        // Chuyển đổi sang JobPostResponseForCompany
         Pagination<JobPostResponseForCompany> pagination = new Pagination<>();
         pagination.setContent(getListJob(jobPostPage));
         pagination.setTotalElements(jobPostPage.getTotalElements());

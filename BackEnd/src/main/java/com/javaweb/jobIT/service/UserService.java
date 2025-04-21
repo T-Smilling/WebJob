@@ -129,7 +129,7 @@ public class UserService {
         userRepository.save(userEntity);
     }
 
-    @PreAuthorize("hasAuthority('MANAGE_USERS')")
+    @PreAuthorize("hasRole('ADMIN')")
     public UserPagination getAllUsers(int page, int size) {
         log.info("In method get all Users");
         Pageable pageable = PageRequest.of(page,size, Sort.by("username").ascending());

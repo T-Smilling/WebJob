@@ -8,13 +8,14 @@ import com.javaweb.jobIT.dto.response.user.CheckTokenResponse;
 import com.javaweb.jobIT.service.AuthenticationService;
 import com.nimbusds.jose.JOSEException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.text.ParseException;
 
 @RestController
@@ -31,6 +32,18 @@ public class AuthenticationController {
                 .result(result)
                 .message("Login successful")
                 .build();
+    }
+
+    @GetMapping("/google-login")
+    public void googleLogin(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/oauth2/authorization/google");
+    }
+
+    @GetMapping("/google-login-success")
+    public void googleLoginSuccess(@AuthenticationPrincipal OAuth2User oAuth2User, HttpServletResponse response) throws IOException {
+        AuthenticationResponse authResponse = authenticationService.googleLogin(oAuth2User);
+        String redirectUrl = "http://localhost:3000/google/callback?token=" + authResponse.getToken();
+        response.sendRedirect(redirectUrl);
     }
 
     @PostMapping("/validate-token")

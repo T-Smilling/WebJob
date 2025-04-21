@@ -76,7 +76,7 @@ const AllCompany = () => {
                 title={
                   <NavLink to={`/companies/${company.id}`}>
                     <Button type="link" className="all-company-name-button">
-                      {company.website}
+                      {company.companyName}
                     </Button>
                   </NavLink>
                 }

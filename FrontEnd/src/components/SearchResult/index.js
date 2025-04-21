@@ -4,6 +4,7 @@ import "./SearchResult.css";
 
 function SearchResult(props) {
   const { data = [] } = props;
+  console.log("SearchResult nhận dữ liệu:", data);
   return (
     <>
       {data.length > 0 ? (

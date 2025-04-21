@@ -65,7 +65,7 @@ public class RoleService {
         }
         String name = authentication.getName();
         UserEntity user = userRepository.findByUsername(name).orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
-        if (!user.getEmail().equals(request.getEmail()) && !request.getUsername().equals(name)) {
+        if (!user.getEmail().equals(request.getEmail())) {
             throw new AppException(ErrorCode.USER_NOT_EXISTED);
         }
         RoleEntity employer = roleRepository.findById(String.valueOf(RoleEnum.EMPLOYER)).orElseThrow(() -> new AppException(ErrorCode.ROLE_NOT_FOUND));

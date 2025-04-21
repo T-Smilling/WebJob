@@ -34,6 +34,9 @@ import UserManagement from "../pages/Admin/UserManagement"
 import CompanyManagement from "../pages/Admin/CompanyManagement"
 import JobManagement from "../pages/Admin/JobManagement"
 import AdminRoute from "../components/AdminRoute"
+import GoogleAuthCallBack from "../pages/GoogleAuthCallBack"
+import GoogleLogin from "../pages/GoogleAuthCallBack/GoogleLogin"
+import CVBuilder from "../pages/CVBuilder"
 
 export const routers = [
     //Public
@@ -73,8 +76,7 @@ export const routers = [
                             {
                                 path: "all-resume",
                                 element: <AllResume/>
-                            }
-
+                            },
                         ]
                     },
                     {
@@ -209,6 +211,16 @@ export const routers = [
             {
                 path:":code",
                 element: <ConfirmAccount/>
+            }
+        ]
+    },
+    {
+        path:"/google",
+        element: <GoogleAuthCallBack/>,
+        children: [
+            {
+                path: "callback",
+                element: <GoogleLogin/>
             }
         ]
     }

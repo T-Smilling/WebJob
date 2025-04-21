@@ -14,7 +14,10 @@ const RegisterEmployee = () => {
       const response = await upRole(values,token); 
       form.resetFields();
       if(response.code === 200){
-        navigate("/companies/create")
+        message.success("Vui lòng đăng nhập lại")
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);        
       }
     } catch (error) {
       message.error('Failed to register employee. Please try again!');
@@ -29,49 +32,47 @@ const RegisterEmployee = () => {
 
   return (
     <div className="register-employee-container">
-      <Row justify="center" align="top" style={{ minHeight: '100vh', paddingTop: '5vh' }}>
-        <Col xs={22} sm={16} md={12} lg={8} xl={6}>
-          <div className="register-employee-form">
-            <h2 style={{ textAlign: 'center', marginBottom: '24px' }}>Register Employee</h2>
-            <Form
-              form={form}
-              name="registerEmployee"
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
-              layout="vertical"
-              initialValues={{
-                email: '',
-                username: '',
-              }}
+      <Col xs={22} sm={16} md={12} lg={8} xl={6}>
+        <div className="register-employee-form">
+          <h2>Register Employee</h2>
+          <Form
+            form={form}
+            name="registerEmployee"
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            layout="vertical"
+            initialValues={{
+              email: '',
+              username: '',
+            }}
+          >
+            <Form.Item
+              name="email"
+              label="Email"
+              rules={[
+                { required: true, message: 'Please input the email!' },
+                { type: 'email', message: 'Please enter a valid email!' },
+              ]}
             >
-              <Form.Item
-                name="email"
-                label="Email"
-                rules={[
-                  { required: true, message: 'Please input the email!' },
-                  { type: 'email', message: 'Please enter a valid email!' },
-                ]}
-              >
-                <Input placeholder="Enter email..." />
-              </Form.Item>
+              <Input placeholder="Enter email..." />
+            </Form.Item>
 
-              <Form.Item
-                name="username"
-                label="Username"
-                rules={[{ required: true, message: 'Please input the username!' }]}
-              >
-                <Input placeholder="Enter username..." />
-              </Form.Item>
+            <Form.Item
+              name="username"
+              label="Username"
+              rules={[{ required: true, message: 'Please input the username!' }]}
+            >
+              <Input placeholder="Enter username..." />
+            </Form.Item>
 
-              <Form.Item>
-                <Button type="primary" htmlType="submit" block>
-                  Register Employee
-                </Button>
-              </Form.Item>
-            </Form>
-          </div>
-        </Col>
-      </Row>
+            <Form.Item>
+              <Button type="primary" htmlType="submit" block>
+                Register Employee
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
+      </Col>
     </div>
   );
 };

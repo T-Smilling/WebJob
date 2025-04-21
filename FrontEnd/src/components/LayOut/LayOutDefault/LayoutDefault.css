@@ -221,11 +221,10 @@ body {
   transform: translateY(-2px);
 }
 
-/* Footer Styles - Updated with centered content */
 .footer-container {
   background: linear-gradient(to right, #002855, #004080);
   color: var(--light-text);
-  padding: 3rem 2rem 1rem;
+  padding: 2rem 2rem 0.5rem;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -234,24 +233,24 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .footer-col {
   flex: 1;
-  min-width: 250px;
-  max-width: 300px;
-  margin-bottom: 2rem;
+  min-width: 200px;
+  max-width: 250px;
+  margin-bottom: 1.5rem;
 }
 
 .footer-title {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   position: relative;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   text-align: center;
 }
 
@@ -261,23 +260,24 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
-  height: 3px;
+  width: 30px;
+  height: 2px;
   background-color: var(--primary-color);
-  border-radius: 1.5px;
+  border-radius: 1px;
 }
 
 .footer-text {
   color: #bbb;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   transition: var(--transition);
   text-align: center;
+  font-size: 0.9rem;
 }
 
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
 }
 
@@ -294,28 +294,29 @@ body {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .footer-icons {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #bbb;
   transition: var(--transition);
 }
 
 .footer-icons:hover {
   color: var(--primary-color);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .footer-bottom {
   text-align: center;
-  padding-top: 2rem;
-  margin-top: 2rem;
+  padding-top: 1rem;
+  margin-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: #bbb;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
+
 
 /* Responsive Styles */
 @media (max-width: 992px) {
@@ -353,12 +354,26 @@ body {
     order: 2;
   }
 
+  /* Responsive Footer Styles */
+@media (max-width: 768px) {
   .footer-container {
-    padding: 2rem 1rem 1rem;
+    padding: 1.5rem 1rem 0.5rem;
   }
+  
+  .footer-col {
+    min-width: 45%;
+  }
+}
 
+  @media (max-width: 576px) {
   .footer-col {
     min-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .footer-title {
+    margin-bottom: 0.5rem;
+  }
   }
 
   .ant-dropdown-menu {

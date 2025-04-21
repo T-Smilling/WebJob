@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { EnvironmentOutlined, DollarOutlined, ClockCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { formatSalary } from "../../utils/formatsalary";
+import {calculatePostedTime} from "../../utils/calculatePostedTime"
 import "./JobItem.css";
 
 function JobItem(props) {
   const { data } = props;
   const formattedEndDate = new Date(data.endDate).toLocaleDateString("vi-VN");
-
+  const isExpired = data.endDate && new Date(data.endDate) < new Date();
   const navigate = useNavigate();
 
   const handleApply = () => {
@@ -33,6 +34,9 @@ function JobItem(props) {
               <strong>Hình thức:</strong> <Tag color="green">{data.jobType}</Tag>
             </span>
             <span>
+              <strong>Trình độ:</strong> <Tag color="blue">{data.jobLevel}</Tag>
+            </span>
+            <span>
               <ClockCircleOutlined /> {formattedEndDate}
             </span>
           </div>
@@ -45,7 +49,12 @@ function JobItem(props) {
               ))}
           </div>
           <div className="job-item-company">
-            <strong>Công ty:</strong> {data.company.companyName}
+              <div>
+                <strong>Công ty:</strong> {data.company.companyName}
+              </div>
+              <div className="createdAt">
+                <strong>Đăng:</strong> {calculatePostedTime(data.createAt)}
+              </div>
           </div>
         </Col>
         <Col xs={24} md={4} className="job-item-button">
@@ -55,7 +64,7 @@ function JobItem(props) {
             className="apply-button"
             block
           >
-            Apply Now
+            {isExpired ? "Đã hết hạn" : "Apply Now"}
           </Button>
         </Col>
       </Row>

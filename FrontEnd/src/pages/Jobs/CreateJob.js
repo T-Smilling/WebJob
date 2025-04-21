@@ -48,6 +48,7 @@ function CreateJob({ companyId, onClose, onJobCreated }) {
           location: "",
           salary: null,
           jobType: undefined,
+          jobLevel: undefined,
           quantity: null,
           startDate: null,
           endDate: null,
@@ -85,10 +86,6 @@ function CreateJob({ companyId, onClose, onJobCreated }) {
             >
               <Input type="number" placeholder="Enter salary..." />
             </Form.Item>
-          </Col>
-
-          {/* Cột 2 */}
-          <Col span={12}>
             <Form.Item
               name="jobType"
               label="Job Type"
@@ -97,6 +94,22 @@ function CreateJob({ companyId, onClose, onJobCreated }) {
                 <Option value="FULL_TIME">Full Time</Option>
                 <Option value="PART_TIME">Part Time</Option>
                 <Option value="REMOTE">Remote</Option>
+              </Select>
+            </Form.Item>
+          </Col>
+
+          {/* Cột 2 */}
+          <Col span={12}>
+            <Form.Item
+              name="jobLevel"
+              label="Job Level"
+            >
+              <Select placeholder="Select job level...">
+                <Option value="INTERN">Intern</Option>
+                <Option value="JUNIOR">Junior</Option>
+                <Option value="MID">Middle</Option>
+                <Option value="SENIOR">Senior</Option>
+                <Option value="LEADER">Leader</Option>
               </Select>
             </Form.Item>
 
@@ -123,7 +136,7 @@ function CreateJob({ companyId, onClose, onJobCreated }) {
 
             <Form.Item
               name="skills"
-              label="Skills (comma-separated)"
+              label="Skills (Cách nhau đấu phẩy)"
             >
               <Input placeholder="Enter skills (e.g., Java, Python)..." />
             </Form.Item>

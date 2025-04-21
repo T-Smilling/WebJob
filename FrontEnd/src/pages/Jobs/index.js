@@ -6,29 +6,31 @@ import { checkSearch } from "../../actions/search";
 import Search from "../Search";
 import JobDetail from "./JobDetail";
 
-function Job () {
+function Job() {
     const { id } = useParams();
     const location = useLocation();
     const dispatch = useDispatch();
     const isSearch = useSelector((state) => state.searchReducer);
 
     useEffect(() => {
+        console.log("location.pathname:", location.pathname);
+        console.log("isSearch:", isSearch);
         if (location.pathname === "/jobs/search") {
-        dispatch(checkSearch(true));
-        } else if (!id) {
-        dispatch(checkSearch(false));
+            dispatch(checkSearch(true));
+        } else {
+            dispatch(checkSearch(false));
         }
-    }, [location.pathname, id]);
-    
+    }, [location.pathname, id, dispatch]);
+
     return (
         <>
             {id ? (
-            <JobDetail />
-        ) : isSearch ? (
-            <Search />
-        ) : (
-            <AllJob />
-        )}
+                <JobDetail />
+            ) : isSearch ? (
+                <Search />
+            ) : (
+                <AllJob />
+            )}
         </>
     );
 }

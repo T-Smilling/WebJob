@@ -1,6 +1,6 @@
 import { useParams, NavLink } from "react-router-dom";
 import { Card, Row, Col, Tag, Button, notification, Modal, Form, Input, Select } from "antd";
-import { CalendarOutlined, DollarOutlined, TeamOutlined, EnvironmentOutlined, EyeOutlined, MailOutlined, UserOutlined, PhoneOutlined } from "@ant-design/icons";
+import { CalendarOutlined, DollarOutlined, TeamOutlined, EnvironmentOutlined, EyeOutlined, MailOutlined, UserOutlined, PhoneOutlined, BarsOutlined } from "@ant-design/icons";
 import "./JobDetail.css";
 import { useEffect, useState } from "react";
 import { formatDate } from "../../utils/formatdate";
@@ -26,18 +26,32 @@ function JobDetail() {
   const [isEmployee, setIsEmployee] = useState(false);
   const [form] = Form.useForm();
 
+  // Kiểm tra xem công việc đã hết hạn chưa
+  const isJobExpired = () => {
+    if (!job.endDate) return false;
+    const currentDate = new Date();
+    const endDate = new Date(job.endDate);
+    return currentDate > endDate;
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await getJobDetail(id);
-        const responseCheck = await checkCreateBy(id, token);
         setJob(response.result);
-        setIsEmployee(responseCheck.result.isEmployee);
       } catch (error) {
         message.error({
           message: 'Get job detail failed',
           duration: 1.5
         });
+        return;
+      }
+
+      try {
+        const responseCheck = await checkCreateBy(id, token);
+        setIsEmployee(responseCheck.result.isEmployee);
+      } catch (error) {
+        console.log("Error checking employee status:", error.message);
       }
     };
 
@@ -47,9 +61,10 @@ function JobDetail() {
   }, [id, token]);
 
   const handleClick = () => {
-    setIsModalVisible(true);
+    if (!isJobExpired()) {
+      setIsModalVisible(true); // Chỉ mở modal nếu chưa hết hạn
+    }
   };
-
   const handleCancel = () => {
     setIsModalVisible(false);
   };
@@ -61,7 +76,12 @@ function JobDetail() {
   const handleEditCancel = () => {
     setIsEditModalVisible(false);
   };
-
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, 0);
   const handleEditFinish = async (values) => {
     try {
       const payload = {
@@ -70,6 +90,7 @@ function JobDetail() {
         location: values.location,
         salary: values.salary,
         jobType: values.jobType,
+        jobLevel: values.jobLevel,
         updateSkills: values.updateSkills.map((skillName) => ({ name: skillName })),
       };
       const response = await updateJob(id, payload, token);
@@ -200,8 +221,14 @@ function JobDetail() {
             <Col xs={24} md={8} className="apply-button-col-1">
               <Row gutter={[8, 8]}>
                 <Col xs={12}>
-                  <Button onClick={handleClick} type="primary" size="large" block>
-                    Apply Now
+                  <Button
+                    onClick={handleClick}
+                    type={isJobExpired() ? "default" : "primary"} // Đổi màu nếu hết hạn
+                    size="large"
+                    block
+                    disabled={isJobExpired()} // Vô hiệu hóa nếu hết hạn
+                  >
+                    {isJobExpired() ? "Đã hết hạn" : "Apply Now"}
                   </Button>
                 </Col>
                 <Col xs={12}>
@@ -338,6 +365,12 @@ function JobDetail() {
                   <TeamOutlined /> Job Type
                 </span>
                 <span className="info-value-1">{job.jobType}</span>
+              </div>
+              <div className="info-item-1">
+                <span className="info-label-1">
+                  <BarsOutlined /> Job Level
+                </span>
+                <span className="info-value-1">{job.jobLevel || "N/A"}</span>
               </div>
               <div className="info-item-1">
                 <span className="info-label-1">

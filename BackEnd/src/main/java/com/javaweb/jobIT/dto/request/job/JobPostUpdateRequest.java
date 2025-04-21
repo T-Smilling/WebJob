@@ -1,5 +1,6 @@
 package com.javaweb.jobIT.dto.request.job;
 
+import com.javaweb.jobIT.constant.JobLevelEnum;
 import com.javaweb.jobIT.constant.JobTypeEnum;
 import com.javaweb.jobIT.dto.request.skill.SkillRequest;
 import jakarta.validation.constraints.NotBlank;
@@ -23,5 +24,6 @@ public class JobPostUpdateRequest {
     private String location;
     private Double salary;
     private JobTypeEnum jobType;
+    private JobLevelEnum jobLevel;
     private List<SkillRequest> updateSkills = new ArrayList<>();;
 }

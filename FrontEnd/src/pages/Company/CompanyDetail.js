@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { Typography, Space, List, Row, Col, Button, Modal, message, Tabs } from 'antd';
 import { EnvironmentOutlined, TeamOutlined, GlobalOutlined, PlusOutlined, EditOutlined, DeleteOutlined, FileTextOutlined } from '@ant-design/icons'; // Thêm icon FileTextOutlined
@@ -35,7 +35,7 @@ const CompanyDetail = () => {
   const [selectedJobId, setSelectedJobId] = useState(null);
   const [selectedJobTitle, setSelectedJobTitle] = useState("");
 
-  const [searchParams] = useSearchParams();
+  const [searchParams,setSearchParams] = useSearchParams();
   const currentJobPage = parseInt(searchParams.get("page") || "1", 10);
   const currentEmployeePage = parseInt(searchParams.get("page") || "1", 10);
   const size = 4;
@@ -82,6 +82,13 @@ const CompanyDetail = () => {
       </div>
     );
   }
+
+  const setParams = () => {
+    searchParams.set("page", 1); // Cập nhật giá trị của "page"
+    setSearchParams(searchParams); // Cập nhật URL
+    
+  };
+
 
   const handleClick = (e) => {
     navigate(`/jobs/${e}`);
@@ -330,7 +337,11 @@ const CompanyDetail = () => {
         )}
       </div>
 
-      <Tabs defaultActiveKey="1">
+      <Tabs defaultActiveKey="1" onChange={(key) => {
+        if (key === "2") {
+          setParams();
+        }
+      }}>
         <TabPane tab="Công việc đang tuyển" key="1">
           {company.jobPosts?.content?.length > 0 ? (
             <>
@@ -341,7 +352,7 @@ const CompanyDetail = () => {
                   <List.Item>
                     <List.Item.Meta
                       title={<Text strong>{job.title}</Text>}
-                      description={<Text>{job.description}</Text>}
+                      description={<Text>{job.description.split(".")[0]}.</Text>}
                     />
                     <div style={{ display: "flex", gap: 8 }}>
                       <Button onClick={() => handleClick(job.id)} type="primary" size="small">
@@ -382,7 +393,7 @@ const CompanyDetail = () => {
         </TabPane>
 
         {(isEmployee && (hasScope(userScopes, "ROLE_EMPLOYER") || hasScope(userScopes, "ROLE_ADMIN"))) && (
-          <TabPane tab="Danh sách nhân viên" key="2">
+          <TabPane tab="Danh sách nhân viên" key="2" onClick={setParams}>
             {employees.data.length > 0 ? (
               <>
                 <List

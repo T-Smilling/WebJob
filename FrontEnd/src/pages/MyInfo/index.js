@@ -88,7 +88,7 @@ function MyInfo() {
         <div className="profile-header">
           <Avatar size={120} src={user.avatarUrl} icon={<UserOutlined />} />
           <Title level={2} style={{ margin: '10px 0' }}>{user.fullName}</Title>
-          <Text type="secondary">@{user.username}</Text>
+          <Text type="secondary">@username: {user.username}</Text>
         </div>
 
         <div className="profile-info">

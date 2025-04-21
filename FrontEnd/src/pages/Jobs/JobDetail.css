@@ -188,7 +188,14 @@
   font-size: 16px;
   color: #595959;
 }
-
+.info-value-1 {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%; /* Giới hạn chiều rộng giá trị */
+}
 /* Company Card */
 .company-card-1 {
   border-radius: 12px;
@@ -235,7 +242,9 @@
   color: #1a1a1a;
   margin: 0;
 }
-
+.ant-card-body {
+  padding-top: 0px;
+}
 /* Responsive Styles */
 @media (max-width: 992px) {
   .job-detail-container-1 {
