@@ -8,7 +8,9 @@ function Footer() {
       <div className="footer-row">
         <div className="footer-col">
           <h5 className="footer-title">Về chúng tôi</h5>
-          <p className="footer-text">Nền tảng kết nối nhà tuyển dụng và ứng viên IT hàng đầu tại Việt Nam.</p>
+          <p className="footer-text">
+            Nền tảng kết nối nhà tuyển dụng và ứng viên IT hàng đầu tại Việt Nam. Chúng tôi cung cấp cơ hội việc làm chất lượng và kết nối giữa ứng viên và doanh nghiệp.
+          </p>
         </div>
         <div className="footer-col">
           <h5 className="footer-title">Thông tin</h5>

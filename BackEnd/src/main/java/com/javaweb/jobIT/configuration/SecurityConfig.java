@@ -2,6 +2,7 @@ package com.javaweb.jobIT.configuration;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -15,8 +16,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.time.Duration;
 
 @Configuration
 @EnableWebSecurity
@@ -26,11 +30,11 @@ public class SecurityConfig {
 
     private static final String[] PUBLIC_ENDPOINTS_POST = {
             "/users/register", "/auth/login", "/auth/validate-token",
-            "/subscriber/**","/users/forgot-password","/users/confirm-account/**","/users/change-password/**"
+            "/subscriber/**","/users/forgot-password","/users/confirm-account/**","/users/change-password/**","/chat/**"
     };
 
     private static final String[] PUBLIC_ENDPOINTS_GET = {
-            "/company/**","/employee/**","/jobs/**","/users/change-password/**","/users/confirm-account/**",
+            "/company/**","/employee/**","/jobs/**","/users/change-password/**","/users/confirm-account/**","/chat/**",
             "/auth/google-login", "/auth/google-login-success"
     };
 
@@ -79,6 +83,14 @@ public class SecurityConfig {
                                 "/swagger-ui*/**",
                                 "/v3/api-docs/**"
                         );
+    }
+
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder
+                .setConnectTimeout(Duration.ofSeconds(30))
+                .setReadTimeout(Duration.ofSeconds(30))
+                .build();
     }
 
     @Bean

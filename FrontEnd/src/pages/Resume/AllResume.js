@@ -139,30 +139,28 @@ const AllResume = () => {
                   Tài khoản {user.emailVerified ? "đã xác thực" : "chưa xác thực"}
                 </div>
                 <Button type="link" size="small">
-                  <NavLink to="/employee">• Nâng cấp tài khoản</NavLink>
+                  <NavLink to="/employee/register">• Nâng cấp tài khoản</NavLink>
                 </Button>
               </div>
             </div>
 
             <div className="user-status">
-              <div className="status-label">Trạng thái tìm việc</div>
-              <Switch defaultChecked onChange={handleToggleJobSearch} />
+              <div className="status-label">Bạn đang tìm việc</div>
             </div>
             <div className="status-note">
-              Trạng thái Bật tìm việc sẽ tự động tắt sau 14 ngày. Nếu bạn vẫn còn nhu cầu tìm việc, hãy Bật tìm việc trở
-              lại.
+              Hồ sơ của bạn sẽ được hiển thị với các Nhà tuyển dụng (NTD) đang tìm kiếm ứng viên phù hợp, giúp bạn gia tăng cơ hội tiếp cận công việc mơ ước. <br/>
             </div>
 
             <div className="allow-search">
               <div className="allow-search-label">Cho phép NTD tìm kiếm hồ sơ</div>
-              <Switch defaultChecked onChange={handleAllowSearch} />
             </div>
             <div className="allow-search-note">
-              Khi có cơ hội việc làm phù hợp, NTD sẽ liên hệ và trao đổi với bạn qua:
+              Khi có cơ hội việc làm phù hợp. Bạn sẽ nhận được liên hệ từ NTD qua: <br />
               <ul>
-                <li>✔ Email của bạn</li>
-                <li>✔ Mạng xã hội và số điện thoại của bạn</li>
+                <li>Email đã đăng ký: Kiểm tra hộp thư thường xuyên, bao gồm thư mục Spam hoặc Quảng cáo.</li>
+                <li>Mạng xã hội và số điện thoại: Đảm bảo thông tin liên hệ trong hồ sơ của bạn là chính xác để NTD có thể dễ dàng trao đổi.</li>
               </ul>
+              <strong>Mẹo:</strong> Cập nhật đầy đủ kỹ năng, kinh nghiệm và mục tiêu nghề nghiệp trong hồ sơ để tăng cơ hội được chú ý.
             </div>
           </Card>
         </Col>

@@ -19,6 +19,9 @@ public interface JobPostRepository extends JpaRepository<JobPostEntity,Long>, Jp
     @Query("SELECT DISTINCT j.location FROM JobPostEntity j WHERE j.location IS NOT NULL")
     List<String> findAllCities();
 
+    @Query("SELECT j FROM JobPostEntity j WHERE j.createAt >= :startOfDay AND j.createAt < :endOfDay")
+    List<JobPostEntity> findTodayJobs(@Param("startOfDay") Instant startOfDay, @Param("endOfDay") Instant endOfDay);
+
     @Query("SELECT j FROM JobPostEntity j WHERE j.company.id = :companyId " +
             "ORDER BY CASE " +
             "   WHEN j.endDate IS NULL OR j.endDate > :currentTime THEN 0 " +
@@ -33,4 +36,6 @@ public interface JobPostRepository extends JpaRepository<JobPostEntity,Long>, Jp
             "END, j.createAt DESC")
     Page<JobPostEntity> findAllSorted(@Param("currentTime") Instant currentTime, Pageable pageable);
 
+    @Query("SELECT j FROM JobPostEntity j WHERE LOWER(j.company.companyName) LIKE LOWER(CONCAT('%', :companyName, '%'))")
+    List<JobPostEntity> findByCompanyNameLike(@Param("companyName") String companyName);
 }

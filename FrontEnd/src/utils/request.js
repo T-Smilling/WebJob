@@ -10,12 +10,17 @@ const request = async (path, method = "GET", options = null, token = null) => {
         headers["Authorization"] = `Bearer ${token}`;
     }
 
-    const response = await fetch(API_DOMAIN + path, {
+    const fetchOptions = {
         method,
         headers,
         body: options ? JSON.stringify(options) : null,
-    });
+    };
+    // Chỉ thêm credentials cho API chat
+    if (path.startsWith('chat/')) {
+        fetchOptions.credentials = 'include';
+    }
 
+    const response = await fetch(API_DOMAIN + path, fetchOptions);
     return response.json();
 };
 
