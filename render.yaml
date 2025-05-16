@@ -8,21 +8,23 @@ services:
     autoDeploy: true
     envVars:
       - key: DB_HOST
-        value: mysql
+        value: your-mysql-host.com
       - key: DB_PORT
         value: 3306
       - key: DB_NAME
-        fromEnvVar: MYSQL_DATABASE
+        value: your_db_name
       - key: DB_USERNAME
-        fromEnvVar: MYSQL_USER
+        value: your_db_user
       - key: DB_PASSWORD
-        fromEnvVar: MYSQL_PASSWORD
+        value: your_db_password
+
       - key: REDIS_HOST
-        value: redis
+        value: your-redis-host.com
       - key: REDIS_PORT
         value: 6379
+
       - key: KAFKA_BOOTSTRAP_SERVERS
-        value: kafka:9092
+        value: your-kafka-bootstrap.com:9092
 
       # Email
       - key: SPRING_MAIL_HOST
@@ -71,49 +73,4 @@ services:
     autoDeploy: true
     envVars:
       - key: REACT_APP_API_URL
-        value: http://backend:8080
-
-  - type: private-service
-    name: mysql
-    env: docker
-    plan: free
-    image:
-      url: mysql:8.0
-    envVars:
-      - key: MYSQL_ROOT_PASSWORD
-        fromEnvVar: MYSQL_ROOT_PASSWORD
-      - key: MYSQL_DATABASE
-        fromEnvVar: MYSQL_DATABASE
-      - key: MYSQL_USER
-        fromEnvVar: MYSQL_USER
-      - key: MYSQL_PASSWORD
-        fromEnvVar: MYSQL_PASSWORD
-
-  - type: private-service
-    name: redis
-    env: docker
-    plan: free
-    image:
-      url: redis:latest
-
-  - type: private-service
-    name: kafka
-    env: docker
-    plan: free
-    image:
-      url: bitnami/kafka:3.7.0
-    envVars:
-      - key: KAFKA_CFG_NODE_ID
-        value: "0"
-      - key: KAFKA_CFG_PROCESS_ROLES
-        value: controller,broker
-      - key: KAFKA_CFG_CONTROLLER_QUORUM_VOTERS
-        value: 0@kafka:9093
-      - key: KAFKA_CFG_LISTENERS
-        value: PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9094
-      - key: KAFKA_CFG_ADVERTISED_LISTENERS
-        value: PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094
-      - key: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
-        value: CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
-      - key: KAFKA_CFG_CONTROLLER_LISTENER_NAMES
-        value: CONTROLLER
+        value: https://backend.onrender.com
