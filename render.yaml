@@ -1,0 +1,119 @@
+services:
+  - type: web
+    name: backend
+    env: docker
+    plan: free
+    dockerContext: ./BackEnd
+    dockerfilePath: Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: DB_HOST
+        value: mysql
+      - key: DB_PORT
+        value: 3306
+      - key: DB_NAME
+        fromEnvVar: MYSQL_DATABASE
+      - key: DB_USERNAME
+        fromEnvVar: MYSQL_USER
+      - key: DB_PASSWORD
+        fromEnvVar: MYSQL_PASSWORD
+      - key: REDIS_HOST
+        value: redis
+      - key: REDIS_PORT
+        value: 6379
+      - key: KAFKA_BOOTSTRAP_SERVERS
+        value: kafka:9092
+
+      # Email
+      - key: SPRING_MAIL_HOST
+        fromEnvVar: SPRING_MAIL_HOST
+      - key: SPRING_MAIL_PORT
+        fromEnvVar: SPRING_MAIL_PORT
+      - key: SPRING_MAIL_USERNAME
+        fromEnvVar: SPRING_MAIL_USERNAME
+      - key: SPRING_MAIL_PASSWORD
+        fromEnvVar: SPRING_MAIL_PASSWORD
+      - key: SPRING_MAIL_FROM
+        fromEnvVar: SPRING_MAIL_FROM
+
+      # JWT
+      - key: JWT_SIGNER_KEY
+        fromEnvVar: JWT_SIGNER_KEY
+      - key: JWT_VALID_DURATION
+        fromEnvVar: JWT_VALID_DURATION
+      - key: JWT_REFRESHABLE_DURATION
+        fromEnvVar: JWT_REFRESHABLE_DURATION
+
+      # Google OAuth
+      - key: GOOGLE_CLIENT_ID
+        fromEnvVar: GOOGLE_CLIENT_ID
+      - key: GOOGLE_SECRET
+        fromEnvVar: GOOGLE_SECRET
+      - key: GOOGLE_REDIRECT_URL
+        fromEnvVar: GOOGLE_REDIRECT_URL
+      - key: GOOGLE_SCOPE
+        fromEnvVar: GOOGLE_SCOPE
+      - key: USER_INFO_URI
+        fromEnvVar: USER_INFO_URI
+
+      # AI API
+      - key: API_URL
+        fromEnvVar: API_URL
+      - key: API_KEY
+        fromEnvVar: API_KEY
+
+  - type: web
+    name: frontend
+    env: docker
+    plan: free
+    dockerContext: ./FrontEnd
+    dockerfilePath: Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: REACT_APP_API_URL
+        value: http://backend:8080
+
+  - type: private-service
+    name: mysql
+    env: docker
+    plan: free
+    image:
+      url: mysql:8.0
+    envVars:
+      - key: MYSQL_ROOT_PASSWORD
+        fromEnvVar: MYSQL_ROOT_PASSWORD
+      - key: MYSQL_DATABASE
+        fromEnvVar: MYSQL_DATABASE
+      - key: MYSQL_USER
+        fromEnvVar: MYSQL_USER
+      - key: MYSQL_PASSWORD
+        fromEnvVar: MYSQL_PASSWORD
+
+  - type: private-service
+    name: redis
+    env: docker
+    plan: free
+    image:
+      url: redis:latest
+
+  - type: private-service
+    name: kafka
+    env: docker
+    plan: free
+    image:
+      url: bitnami/kafka:3.7.0
+    envVars:
+      - key: KAFKA_CFG_NODE_ID
+        value: "0"
+      - key: KAFKA_CFG_PROCESS_ROLES
+        value: controller,broker
+      - key: KAFKA_CFG_CONTROLLER_QUORUM_VOTERS
+        value: 0@kafka:9093
+      - key: KAFKA_CFG_LISTENERS
+        value: PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9094
+      - key: KAFKA_CFG_ADVERTISED_LISTENERS
+        value: PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094
+      - key: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
+        value: CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      - key: KAFKA_CFG_CONTROLLER_LISTENER_NAMES
+        value: CONTROLLER

@@ -509,7 +509,7 @@ const CompanyDetail = () => {
       </Modal>
 
       <Modal
-        title={`Xác nhận xóa nhân viên ${selectedEmployee?.name}?`}
+        title={`Xác nhận xóa nhân viên ${selectedEmployee?.fullName}?`}
         open={isDeleteEmployeeModalVisible}
         onCancel={handleDeleteEmployeeModalClose}
         footer={[

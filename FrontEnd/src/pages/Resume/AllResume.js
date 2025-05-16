@@ -104,7 +104,7 @@ const AllResume = () => {
                         <Avatar shape="square" size={80} icon={<FileOutlined />} />
                       </div>
                       <div className="resume-info">
-                        <div className="resume-name">{extractFilename(resume.resumeUrl)}</div>
+                        <div className="resume-name"><a href={resume.resumeUrl}>{extractFilename(resume.resumeUrl)}</a></div>
                         <div className="resume-date">Cập nhật lần cuối: {formatDate(resume.updatedAt)}</div>
                       </div>
                       <Button
